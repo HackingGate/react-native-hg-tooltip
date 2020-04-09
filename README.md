@@ -32,7 +32,7 @@ function YourAwesomeComponent() {
             width: 220,
             borderRadius: 10,
           }}
-          arrowWidth={24}
+          arrowBase={24}
           arrowHeight={16}
           arrowColor={'cyan'}
           distanceToTarget={5}
