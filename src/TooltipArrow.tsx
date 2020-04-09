@@ -4,13 +4,13 @@ import * as React from 'react';
 
 interface TooltipArrow {
   position?: Position;
-  arrowWidth: number;
+  arrowBase: number;
   arrowHeight: number;
   arrowColor: string;
 }
 
 export function TooltipArrow(props: TooltipArrow) {
-  const { position, arrowWidth, arrowHeight, arrowColor } = props;
+  const { position, arrowBase, arrowHeight, arrowColor } = props;
 
   let arrowStyle;
   switch (position) {
@@ -18,8 +18,8 @@ export function TooltipArrow(props: TooltipArrow) {
       arrowStyle = [
         styles.baseArrow,
         {
-          borderLeftWidth: arrowWidth / 2,
-          borderRightWidth: arrowWidth / 2,
+          borderLeftWidth: arrowBase / 2,
+          borderRightWidth: arrowBase / 2,
           borderBottomWidth: arrowHeight,
           borderBottomColor: arrowColor,
           top: -arrowHeight + 1,
@@ -30,8 +30,8 @@ export function TooltipArrow(props: TooltipArrow) {
       arrowStyle = [
         styles.baseArrow,
         {
-          borderLeftWidth: arrowWidth / 2,
-          borderRightWidth: arrowWidth / 2,
+          borderLeftWidth: arrowBase / 2,
+          borderRightWidth: arrowBase / 2,
           borderTopWidth: arrowHeight,
           borderTopColor: arrowColor,
           bottom: -arrowHeight + 1,
@@ -42,11 +42,11 @@ export function TooltipArrow(props: TooltipArrow) {
       arrowStyle = [
         styles.baseArrow,
         {
-          borderTopWidth: arrowHeight / 2,
-          borderBottomWidth: arrowHeight / 2,
-          borderRightWidth: arrowWidth,
+          borderTopWidth: arrowBase / 2,
+          borderBottomWidth: arrowBase / 2,
+          borderRightWidth: arrowHeight,
           borderRightColor: arrowColor,
-          left: -arrowWidth + 1,
+          left: -arrowHeight + 1,
         },
       ];
       break;
@@ -54,11 +54,11 @@ export function TooltipArrow(props: TooltipArrow) {
       arrowStyle = [
         styles.baseArrow,
         {
-          borderTopWidth: arrowHeight / 2,
-          borderBottomWidth: arrowHeight / 2,
-          borderLeftWidth: arrowWidth,
+          borderTopWidth: arrowBase / 2,
+          borderBottomWidth: arrowBase / 2,
+          borderLeftWidth: arrowHeight,
           borderLeftColor: arrowColor,
-          right: -arrowWidth + 1,
+          right: -arrowHeight + 1,
         },
       ];
       break;

@@ -8,14 +8,14 @@ export interface TooltipView {
   children?: ReactNode;
   position?: Position;
   style?: StyleProp<ViewStyle>;
-  arrowWidth?: number;
+  arrowBase?: number;
   arrowHeight?: number;
   arrowColor?: string;
   distance?: number;
 }
 
 export function TooltipView(props: TooltipView) {
-  const { children, position, style, arrowWidth, arrowHeight, arrowColor, distance = 0 } = props;
+  const { children, position, style, arrowBase, arrowHeight, arrowColor, distance = 0 } = props;
 
   const [childrenLayout, setChildrenLayout] = useState<LayoutRectangle>({
     x: 0,
@@ -46,7 +46,7 @@ export function TooltipView(props: TooltipView) {
       tooltipStyle = [
         styles.baseTooltip,
         {
-          left: -childrenLayout.width - arrowWidth - distance,
+          left: -childrenLayout.width - arrowBase - distance,
         },
       ];
       break;
@@ -54,7 +54,7 @@ export function TooltipView(props: TooltipView) {
       tooltipStyle = [
         styles.baseTooltip,
         {
-          right: -childrenLayout.width - arrowWidth - distance,
+          right: -childrenLayout.width - arrowBase - distance,
         },
       ];
       break;
@@ -70,10 +70,10 @@ export function TooltipView(props: TooltipView) {
         setChildrenLayout(nativeEvent.layout);
       }}>
       {children}
-      {position && arrowWidth && arrowHeight && arrowColor ? (
+      {position && arrowBase && arrowHeight && arrowColor ? (
         <TooltipArrow
           position={position}
-          arrowWidth={arrowWidth}
+          arrowBase={arrowBase}
           arrowHeight={arrowHeight}
           arrowColor={arrowColor}
         />

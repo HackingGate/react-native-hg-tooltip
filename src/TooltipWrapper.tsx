@@ -16,7 +16,7 @@ export interface TooltipWrapper {
   modalStyle?: StyleProp<ViewStyle>;
   targetStyle?: StyleProp<ViewStyle>;
   tooltipStyle?: StyleProp<ViewStyle>;
-  arrowWidth?: number;
+  arrowBase?: number;
   arrowHeight?: number;
   arrowColor?: string;
   tooltipComponent?: ReactNode;
@@ -31,7 +31,7 @@ export function TooltipWrapper(props: TooltipWrapper) {
     modalStyle,
     targetStyle,
     tooltipStyle,
-    arrowWidth,
+    arrowBase,
     arrowHeight,
     arrowColor,
     tooltipComponent,
@@ -62,7 +62,7 @@ export function TooltipWrapper(props: TooltipWrapper) {
         <TooltipView
           style={tooltipStyle}
           position={position}
-          arrowWidth={arrowWidth}
+          arrowBase={arrowBase}
           arrowHeight={arrowHeight}
           arrowColor={arrowColor}
           distance={distanceToTarget}>
