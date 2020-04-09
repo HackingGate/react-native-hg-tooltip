@@ -1,4 +1,7 @@
 # react-native-hg-tooltip
+
+[![npm version](https://badge.fury.io/js/react-native-hg-tooltip.svg)](https://badge.fury.io/js/react-native-hg-tooltip)
+
 A customizable React Native tooltip
 
 ## Example
