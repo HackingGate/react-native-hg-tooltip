@@ -4,7 +4,7 @@ import { View, StyleSheet, Modal, StyleProp, ViewStyle } from 'react-native';
 
 import { MeasureInWindow } from './types';
 
-export interface TooltipModal {
+export interface TooltipModalProps {
   children?: ReactNode;
   targetMeasureInWindow?: MeasureInWindow;
   isVisible?: boolean;
@@ -12,7 +12,7 @@ export interface TooltipModal {
   targetStyle?: StyleProp<ViewStyle>;
 }
 
-export function TooltipModal(props: TooltipModal) {
+export function TooltipModal(props: TooltipModalProps) {
   const { children, targetMeasureInWindow, isVisible, modalStyle, targetStyle } = props;
 
   if (!targetMeasureInWindow) {

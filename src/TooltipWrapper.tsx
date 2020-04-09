@@ -9,7 +9,7 @@ import { TooltipView } from './TooltipView';
 
 import { isEqual } from 'lodash';
 
-export interface TooltipWrapper {
+export interface TooltipWrapperProps {
   children?: ReactNode;
   position?: Position;
   isVisible?: boolean;
@@ -23,7 +23,7 @@ export interface TooltipWrapper {
   distanceToTarget?: number;
 }
 
-export function TooltipWrapper(props: TooltipWrapper) {
+export function TooltipWrapper(props: TooltipWrapperProps) {
   const {
     children,
     position,

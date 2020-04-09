@@ -2,14 +2,14 @@ import { Position } from './types';
 import { StyleSheet, View } from 'react-native';
 import * as React from 'react';
 
-interface TooltipArrow {
+interface TooltipArrowProps {
   position?: Position;
   arrowBase: number;
   arrowHeight: number;
   arrowColor: string;
 }
 
-export function TooltipArrow(props: TooltipArrow) {
+export function TooltipArrow(props: TooltipArrowProps) {
   const { position, arrowBase, arrowHeight, arrowColor } = props;
 
   let arrowStyle;

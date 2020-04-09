@@ -4,7 +4,7 @@ import { ReactNode, useState } from 'react';
 import { Position } from './types';
 import { TooltipArrow } from './TooltipArrow';
 
-export interface TooltipView {
+export interface TooltipViewProps {
   children?: ReactNode;
   position?: Position;
   style?: StyleProp<ViewStyle>;
@@ -14,7 +14,7 @@ export interface TooltipView {
   distance?: number;
 }
 
-export function TooltipView(props: TooltipView) {
+export function TooltipView(props: TooltipViewProps) {
   const { children, position, style, arrowBase, arrowHeight, arrowColor, distance = 0 } = props;
 
   const [childrenLayout, setChildrenLayout] = useState<LayoutRectangle>({
