@@ -5625,10 +5625,10 @@ react-is@^17.0.1:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-17.0.1.tgz#5b3531bd76a645a4c9fb6e693ed36419e3301339"
   integrity sha512-NAnt2iGDXohE5LI7uBnLnqvLQMtzhkiAOLXTmv+qnF9Ky7xAPcX8Up/xWIhxvLVGJvuLiNc4xQLtuqDRzb4fSA==
 
-react-native-hg-tooltip@0.1.2-beta.0:
-  version "0.1.2-beta.0"
-  resolved "https://registry.yarnpkg.com/react-native-hg-tooltip/-/react-native-hg-tooltip-0.1.2-beta.0.tgz#bd59f31a19fdfb7e8047547615d0dddcbf5d6ed2"
-  integrity sha512-7Z1LSEI9+GwHsSl0LP0I5QkvpfNd97oucL1Mkb31Mun8HBZK8H9SO1X1FzuBFOASmW+XAIvOlUK26rHfKhAM6Q==
+react-native-hg-tooltip@0.1.2-beta.1:
+  version "0.1.2-beta.1"
+  resolved "https://registry.yarnpkg.com/react-native-hg-tooltip/-/react-native-hg-tooltip-0.1.2-beta.1.tgz#c72ecb95e2aaf646b036951d3e695fe8f34934b0"
+  integrity sha512-HRkDnFK1x9XzQMxfK0bJobuSxsLjE0bwnzFp/fhhbVDHRM+QZ3i4aGs6A46zwBeRatFxQ8/XydOYnx0x3MwKsQ==
   dependencies:
     lodash "^4.17.20"
 
