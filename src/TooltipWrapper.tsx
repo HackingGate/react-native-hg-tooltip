@@ -39,7 +39,7 @@ export function TooltipWrapper(props: TooltipWrapperProps) {
 
   return (
     <View
-      style={{ opacity: 1 }}
+      style={{ backgroundColor: 'rgba(0,0,0,0)' }}
       ref={(ref) => {
         setTargetRef(ref);
       }}>
