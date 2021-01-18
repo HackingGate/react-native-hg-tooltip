@@ -1,9 +1,9 @@
+import { isEqual } from 'lodash';
 import * as React from 'react';
 import { ReactNode, useEffect, useState } from 'react';
 import { View, StyleSheet, Modal, StyleProp, ViewStyle } from 'react-native';
 
 import { MeasureInWindow } from './types';
-import { isEqual } from 'lodash';
 
 export interface TooltipModalProps {
   children?: ReactNode;
@@ -20,12 +20,12 @@ export function TooltipModal(props: TooltipModalProps) {
 
   useEffect(() => {
     updateTargetMeasure();
-  }, []);
+  }, [targetMeasureInWindow]);
 
   function updateTargetMeasure(force = false) {
     if (targetRef) {
       targetRef.measureInWindow((x, y, width, height) => {
-        const measure: MeasureInWindow = { x: x, y: y, width: width, height: height };
+        const measure: MeasureInWindow = { x, y, width, height };
         if (!isEqual(measure, targetMeasureInWindow) || force) {
           setTargetMeasureInWindow(measure);
         }
@@ -39,7 +39,11 @@ export function TooltipModal(props: TooltipModalProps) {
   }
 
   return (
-    <Modal visible={isVisible} transparent supportedOrientations={['portrait', 'portrait-upside-down', 'landscape']} onOrientationChange={() => updateTargetMeasure(true)}>
+    <Modal
+      visible={isVisible}
+      transparent
+      supportedOrientations={['portrait', 'portrait-upside-down', 'landscape']}
+      onOrientationChange={() => updateTargetMeasure(true)}>
       <View style={[styles.modalStyle, modalStyle]}>
         <View
           style={[
