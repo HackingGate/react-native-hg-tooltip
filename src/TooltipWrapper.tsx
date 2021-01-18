@@ -2,10 +2,9 @@ import * as React from 'react';
 import { ReactNode, useState } from 'react';
 import { StyleProp, View, ViewStyle } from 'react-native';
 
-import { Position } from './types';
-
 import { TooltipModal } from './TooltipModal';
 import { TooltipView } from './TooltipView';
+import { Position } from './types';
 
 export interface TooltipWrapperProps {
   children?: ReactNode;
@@ -40,6 +39,7 @@ export function TooltipWrapper(props: TooltipWrapperProps) {
 
   return (
     <View
+      style={{ opacity: 1 }}
       ref={(ref) => {
         setTargetRef(ref);
       }}>
