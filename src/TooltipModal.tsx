@@ -1,26 +1,49 @@
+import { isEqual } from 'lodash';
 import * as React from 'react';
-import { ReactNode } from 'react';
+import { ReactNode, useEffect, useState } from 'react';
 import { View, StyleSheet, Modal, StyleProp, ViewStyle } from 'react-native';
 
 import { MeasureInWindow } from './types';
 
 export interface TooltipModalProps {
   children?: ReactNode;
-  targetMeasureInWindow?: MeasureInWindow;
+  targetRef?: View;
   isVisible?: boolean;
   modalStyle?: StyleProp<ViewStyle>;
   targetStyle?: StyleProp<ViewStyle>;
 }
 
 export function TooltipModal(props: TooltipModalProps) {
-  const { children, targetMeasureInWindow, isVisible, modalStyle, targetStyle } = props;
+  const { children, targetRef, isVisible, modalStyle, targetStyle } = props;
+
+  const [targetMeasureInWindow, setTargetMeasureInWindow] = useState<MeasureInWindow>();
+
+  useEffect(() => {
+    updateTargetMeasure();
+  }, [targetMeasureInWindow]);
+
+  function updateTargetMeasure(force = false) {
+    if (targetRef) {
+      targetRef.measureInWindow((x, y, width, height) => {
+        const measure: MeasureInWindow = { x, y, width, height };
+        if (!isEqual(measure, targetMeasureInWindow) || force) {
+          setTargetMeasureInWindow(measure);
+        }
+      });
+    }
+  }
 
   if (!targetMeasureInWindow) {
+    updateTargetMeasure();
     return null;
   }
 
   return (
-    <Modal visible={isVisible} transparent>
+    <Modal
+      visible={isVisible}
+      transparent
+      supportedOrientations={['portrait', 'portrait-upside-down', 'landscape']}
+      onOrientationChange={() => updateTargetMeasure(true)}>
       <View style={[styles.modalStyle, modalStyle]}>
         <View
           style={[

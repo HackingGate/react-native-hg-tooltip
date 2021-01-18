@@ -2,12 +2,10 @@ import * as React from 'react';
 import { ReactNode, useState } from 'react';
 import { StyleProp, View, ViewStyle } from 'react-native';
 
-import { Position, MeasureInWindow } from './types';
+import { Position } from './types';
 
 import { TooltipModal } from './TooltipModal';
 import { TooltipView } from './TooltipView';
-
-import { isEqual } from 'lodash';
 
 export interface TooltipWrapperProps {
   children?: ReactNode;
@@ -38,24 +36,17 @@ export function TooltipWrapper(props: TooltipWrapperProps) {
     distanceToTarget,
   } = props;
 
-  const [targetMeasureInWindow, setTargetMeasureInWindow] = useState<MeasureInWindow>();
+  const [targetRef, setTargetRef] = useState<View>();
 
   return (
     <View
       ref={(ref) => {
-        if (ref) {
-          ref.measureInWindow((x, y, width, height) => {
-            const measure: MeasureInWindow = { x: x, y: y, width: width, height: height };
-            if (!isEqual(measure, targetMeasureInWindow)) {
-              setTargetMeasureInWindow(measure);
-            }
-          });
-        }
+        setTargetRef(ref);
       }}>
       <View style={{ opacity: isVisible ? 0 : 1 }}>{children}</View>
       <TooltipModal
         isVisible={isVisible}
-        targetMeasureInWindow={targetMeasureInWindow}
+        targetRef={targetRef}
         modalStyle={modalStyle}
         targetStyle={targetStyle}>
         {children}
