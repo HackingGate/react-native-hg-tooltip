@@ -72,6 +72,6 @@ const styles = StyleSheet.create({
 ## Known Issues 
 
 ### Orientation change is only supported on iOS.
-Because the [onOrientationChange](https://reactnative.dev/docs/modal#onorientationchange) prop  is only available for iOS.  
+The [onOrientationChange](https://reactnative.dev/docs/modal#onorientationchange) prop  is only available for iOS.  
 And there's no prop that is able to handle orientation on the Android side. Because the configuration change handler is not implemented in React Native.  
 There's an [issue](https://github.com/facebook/react-native/issues/3219) but unfortunately it was closed due to inactivity.  
