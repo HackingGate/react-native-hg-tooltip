@@ -32,7 +32,7 @@
     "lodash": "^4.17.20"
   },
   "devDependencies": {
-    "@babel/core": "^7.12.10",
+    "@babel/core": "7.19.1",
     "@types/react-native": "^0.63.45",
     "@typescript-eslint/eslint-plugin": "^4.13.0",
     "@typescript-eslint/parser": "^4.13.0",
